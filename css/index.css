@@ -1,0 +1,59 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #f1f1f1cc;
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#calculator{
+    background-color: #35353b;
+    max-width: 17rem;
+    position: relative;
+    top: 3rem;
+    padding: 1.5rem;
+    margin: auto;
+}
+
+#display{
+    background-color: white;
+    padding: 15px;
+    text-align: right;
+    color: rgb(90, 83, 83);
+}
+
+#display span{
+    color: #35353b;
+}
+
+#operators{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    grid-auto-rows: minmax(40px, auto);
+    margin: 0.5rem auto;
+}
+
+#digits{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(40px, auto);
+    margin-bottom: 0.5rem;
+}
+
+.span-child{
+    font-weight: bold;
+    font-size: 1rem;
+}
