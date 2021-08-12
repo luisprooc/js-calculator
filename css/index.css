@@ -53,6 +53,28 @@ button:hover{
     margin-bottom: 0.5rem;
 }
 
+#decimal{
+    grid-column: 2 / 4;
+}
+
+
+#utils{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(40px, auto);
+    color: white;
+}
+
+#clear,#equals{
+    background-color: #E13D15;
+    color: white;
+}
+
+#equals{
+    background-color: #14A6ED;
+}
+
 .span-child{
     font-weight: bold;
     font-size: 1rem;
