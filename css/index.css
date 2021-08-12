@@ -33,7 +33,11 @@ button:hover{
     color: rgb(90, 83, 83);
 }
 
-#display span{
+.white-display{
+    color: white;
+}
+
+.black-display{
     color: #35353b;
 }
 
