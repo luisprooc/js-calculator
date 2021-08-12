@@ -1,12 +1,18 @@
 const display = document.getElementById("display").firstElementChild;
 const operators = Array.from(document.querySelectorAll("#operators button"));
+const digits = Array.from(document.querySelectorAll("#digits button"));
 const utils = Array.from(document.querySelectorAll("#utils"));
 
 window.addEventListener("load",()=>{
-    displayAnimation();
+    //displayAnimation();
     utils.map(util => util.addEventListener("click",(e)=>{
         e.target.id === "clear"? clearFn():EqualFn();   
     }));
+
+    operators.map(operator => operator.addEventListener("click",introduceOperator));
+
+    digits.map(digit => digit.addEventListener("click", introduceValue));
+
 });
 
 
@@ -21,10 +27,24 @@ function displayAnimation(){
     }, 1000);
 }
 
+function introduceValue(e){
+    if(/_{3}/.test(display.innerText)){
+        display.innerText = "";
+    }
+    display.innerText += e.target.innerText;
+}
+
+function introduceOperator(e){
+    if(!/_{3}/.test(display.innerText)){
+        display.innerText += e.target.innerText;
+    }
+}
+
+
 function clearFn(){
-    display.textContent = "0";
+    display.innerText = "0";
 }
 
 function EqualFn(){
-    return
+    console.log(display.innerText)
 }
