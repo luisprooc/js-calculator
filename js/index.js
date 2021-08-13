@@ -10,9 +10,8 @@ window.addEventListener("load",()=>{
     }));
 
     operators.map(operator => operator.addEventListener("click",introduceOperator));
-
     digits.map(digit => digit.addEventListener("click", introduceValue));
-
+    localStorage.setItem("input","0");
 });
 
 
@@ -27,11 +26,16 @@ function displayAnimation(){
     }, 1000);
 }
 
+function setDisplay(value){
+    display.innerText += value;
+    localStorage.setItem("input",display.innerText);
+}
+
 function introduceValue(e){
-    if(/_{3}/.test(display.innerText)){
+    if(localStorage.getItem("input")[0] === "0"){
         display.innerText = "";
     }
-    display.innerText += e.target.innerText;
+    setDisplay(e.target.innerText);
 }
 
 function introduceOperator(e){
@@ -42,9 +46,15 @@ function introduceOperator(e){
 
 
 function clearFn(){
-    display.innerText = "0";
+    if(display.innerText !== "0"){
+        display.innerText = "0";
+        localStorage.setItem("input","0");
+    }
+    return;
 }
 
 function EqualFn(){
-    console.log(display.innerText)
+    if(/[*+-/]/.test(JSON.stringify(localStorage.getItem("input")))){
+        console.log("YES")
+    }
 }
