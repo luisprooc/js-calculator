@@ -31,19 +31,20 @@ function setDisplay(value){
 }
 
 function introduceValue(e){
-    if(prevValue === "0") display.innerText = "";
+    if(prevValue === "0" && display.innerText[0] === "0") display.innerText = "";
     setDisplay(e.target.innerText);
 }
 
 function introduceOperator(e){
-    if(/[*+/-]/.test(display.innerText) && e.target.innerText !== "-"){
+
+    if(/[1-9]/.test(prevValue) || e.target.innerText === "-"){
+        setDisplay(e.target.innerText);
+    }
+
+    else if(/[*+/-]/.test(display.innerText) && e.target.innerText !== "-"){
         display.innerText = display.innerText.slice(0,-1) + e.target.innerText;
         prevValue = e.target.innerText;
         return;
-    }
-
-    else if(/[1-9]/.test(prevValue) || e.target.innerText === "-"){
-        setDisplay(e.target.innerText);
     }
 }
 
