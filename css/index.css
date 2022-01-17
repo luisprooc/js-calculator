@@ -41,6 +41,11 @@ button:hover{
     color: #35353b;
 }
 
+.small-display {
+    margin: 0 0 1rem 0;
+    font-size: small;
+}
+
 #operators{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
